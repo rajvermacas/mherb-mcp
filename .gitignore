@@ -27,9 +27,6 @@ share/python-wheels/
 *.egg
 PIPFILE.lock
 
-# Poetry
-poetry.lock
-
 # PyInstaller
 *.manifest
 *.spec
