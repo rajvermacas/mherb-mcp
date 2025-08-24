@@ -14,7 +14,7 @@ from typing import Any, Dict, List
 from fastmcp import FastMCP, Context
 from pydantic import BaseModel, Field
 
-from .config import ServerConfig, load_config, setup_logging
+from .config import ServerConfig, setup_logging
 from .database import DatabaseError, DatabaseHandler
 
 logger = logging.getLogger(__name__)
@@ -52,7 +52,7 @@ class DatabaseMetadata(BaseModel):
 
 
 class MHerbMCP:
-    """Main MCP server class for MHerb."""
+    """Main MCP server class for MHerb"""
     
     def __init__(self, config: ServerConfig):
         """Initialize the MCP server.
@@ -398,11 +398,6 @@ Environment Variables:
         help="Use JSON responses instead of SSE streams"
     )
     
-    parser.add_argument(
-        "--no-cors",
-        action="store_true",
-        help="Disable CORS headers"
-    )
     
     # Server options
     parser.add_argument(
@@ -426,10 +421,10 @@ def create_server(args: argparse.Namespace = None) -> MHerbMCP:
         args: Command-line arguments to override configuration
     
     Returns:
-        Configured MHerbMCP server instance
+        Configured MHerb server instance
     """
     # Load base configuration
-    config = load_config()
+    config = ServerConfig()
     
     # Override with command-line arguments if provided
     if args:
@@ -447,8 +442,6 @@ def create_server(args: argparse.Namespace = None) -> MHerbMCP:
             config.stateless_http = True
         if args.json_response:
             config.json_response = True
-        if args.no_cors:
-            config.allow_cors = False
         if args.log_level:
             config.log_level = args.log_level
         if args.server_name:
