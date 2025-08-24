@@ -1,1 +1,1 @@
-- Use context7 mcp tool extensively.
+- Use context7 mcp tool and sub agents extensively.

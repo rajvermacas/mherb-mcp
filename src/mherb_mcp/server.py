@@ -73,8 +73,8 @@ class MHerbMCP:
     def _register_tools(self) -> None:
         """Register MCP tools."""
         
-        @self.mcp.tool()
-        async def execute_query(query: str, ctx: Context) -> QueryResult:
+        @self.mcp.tool(description="Execute a database query and return results from mherb")
+        async def execute_query_mherb(query: str, ctx: Context) -> QueryResult:
             """Execute a SELECT query on the database.
             
             Args:
@@ -123,7 +123,7 @@ class MHerbMCP:
             except Exception as e:
                 error_msg = f"Unexpected error executing query: {e}"
                 await ctx.error(error_msg)
-                logger.exception("Unexpected error in execute_query")
+                logger.exception("Unexpected error in execute_query mherb")
                 raise ValueError(error_msg)
     
     def _register_resources(self) -> None:
