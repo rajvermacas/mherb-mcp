@@ -1,0 +1,1 @@
+- Use  serena and context7 mcp tool extensively.
