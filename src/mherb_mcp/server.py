@@ -1,4 +1,4 @@
-"""Main MCP server implementation for Talk 2 Tables.
+"""Main MCP server implementation for MHerb.
 
 This module implements the MCP server that exposes SQLite database query
 capabilities and resource discovery functionality.
@@ -51,8 +51,8 @@ class DatabaseMetadata(BaseModel):
     last_updated: str = Field(description="Last update timestamp")
 
 
-class Talk2TablesMCP:
-    """Main MCP server class for Talk 2 Tables."""
+class MHerbMCP:
+    """Main MCP server class for MHerb."""
     
     def __init__(self, config: ServerConfig):
         """Initialize the MCP server.
@@ -327,7 +327,7 @@ def parse_args() -> argparse.Namespace:
         Parsed command-line arguments
     """
     parser = argparse.ArgumentParser(
-        description="Talk 2 Tables MCP Server - SQLite database query server with MCP protocol",
+        description="MHerb MCP Server - SQLite database query server with MCP protocol",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -419,14 +419,14 @@ Environment Variables:
     return parser.parse_args()
 
 
-def create_server(args: argparse.Namespace = None) -> Talk2TablesMCP:
+def create_server(args: argparse.Namespace = None) -> MHerbMCP:
     """Create and configure the MCP server.
     
     Args:
         args: Command-line arguments to override configuration
     
     Returns:
-        Configured Talk2TablesMCP server instance
+        Configured MHerbMCP server instance
     """
     # Load base configuration
     config = load_config()
@@ -458,7 +458,7 @@ def create_server(args: argparse.Namespace = None) -> Talk2TablesMCP:
     setup_logging(config)
     
     # Create server
-    server = Talk2TablesMCP(config)
+    server = MHerbMCP(config)
     
     return server
 

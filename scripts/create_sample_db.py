@@ -125,7 +125,7 @@ def create_sample_database():
     
     # Create metadata file
     metadata = {
-        "server_name": "talk-2-tables-mcp",
+        "server_name": "mherb-mcp",
         "database_path": str(db_path),
         "description": "Sample e-commerce database for demonstration purposes",
         "business_use_cases": [

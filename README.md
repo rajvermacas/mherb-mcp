@@ -124,7 +124,7 @@ python -m mherb_mcp.server --transport streamable-http --json-response --port 80
 | `--json-response` | Use JSON responses instead of SSE | False |
 | `--no-cors` | Disable CORS headers | False |
 | `--log-level` | Logging level (DEBUG/INFO/WARNING/ERROR) | INFO |
-| `--server-name` | Server name identifier | talk2tables-mcp |
+| `--server-name` | Server name identifier | mherb-mcp |
 
 ### Quick Start with tmux (for background execution)
 

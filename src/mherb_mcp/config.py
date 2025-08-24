@@ -1,4 +1,4 @@
-"""Configuration management for the Talk 2 Tables MCP server.
+"""Configuration management for the MHerb MCP server.
 
 This module handles all configuration settings including database paths,
 metadata locations, and server settings.
@@ -29,7 +29,7 @@ class ServerConfig(BaseModel):
     
     # Server configuration
     server_name: str = Field(
-        default="talk-2-tables-mcp",
+        default="mherb-mcp",
         description="Name of the MCP server"
     )
     
@@ -248,7 +248,7 @@ def setup_logging(config: ServerConfig) -> None:
     )
     
     # Set specific logger levels
-    logger = logging.getLogger("talk_2_tables_mcp")
+    logger = logging.getLogger("mherb_mcp")
     logger.setLevel(getattr(logging, config.log_level))
     
     # Reduce verbosity of external libraries if needed
